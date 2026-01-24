@@ -9,7 +9,6 @@ import {
 interface Skill {
   name: string;
   icon: React.ElementType;
-  level: number;
 }
 
 interface SkillCategory {
@@ -23,40 +22,40 @@ const skillCategories: SkillCategory[] = [
     title: 'Front-end',
     icon: Layout,
     skills: [
-      { name: 'React', icon: Code, level: 80 },
-      { name: 'TypeScript', icon: FileCode, level: 70 },
-      { name: 'JavaScript', icon: FileJson, level: 85 },
-      { name: 'HTML/CSS', icon: Braces, level: 90 },
+      { name: 'React', icon: Code },
+      { name: 'TypeScript', icon: FileCode },
+      { name: 'JavaScript', icon: FileJson },
+      { name: 'HTML/CSS', icon: Braces },
     ]
   },
   {
     title: 'Back-end',
     icon: Server,
     skills: [
-      { name: 'Node.js', icon: Leaf, level: 65 },
-      { name: 'Java', icon: CircleDot, level: 60 },
-      { name: 'Spring Boot', icon: Flame, level: 50 },
-      { name: 'REST APIs', icon: Layers, level: 70 },
+      { name: 'Node.js', icon: Leaf },
+      { name: 'Java', icon: CircleDot },
+      { name: 'Spring Boot', icon: Flame },
+      { name: 'REST APIs', icon: Layers },
     ]
   },
   {
     title: 'Banco de Dados',
     icon: Database,
     skills: [
-      { name: 'MySQL', icon: Database, level: 70 },
-      { name: 'PostgreSQL', icon: Database, level: 65 },
-      { name: 'Firebase', icon: Flame, level: 60 },
-      { name: 'MongoDB', icon: Leaf, level: 55 },
+      { name: 'MySQL', icon: Database },
+      { name: 'PostgreSQL', icon: Database },
+      { name: 'Firebase', icon: Flame },
+      { name: 'MongoDB', icon: Leaf },
     ]
   },
   {
     title: 'Ferramentas',
     icon: Wrench,
     skills: [
-      { name: 'Git', icon: GitBranch, level: 85 },
-      { name: 'GitHub', icon: Github, level: 90 },
-      { name: 'Figma', icon: Figma, level: 70 },
-      { name: 'Terminal', icon: Terminal, level: 75 },
+      { name: 'Git', icon: GitBranch },
+      { name: 'GitHub', icon: Github },
+      { name: 'Figma', icon: Figma },
+      { name: 'Terminal', icon: Terminal },
     ]
   }
 ];
@@ -95,25 +94,16 @@ const Skills: React.FC = () => {
               </div>
 
               {/* Skills */}
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name} className="group">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <skill.icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                        <span className="font-medium text-sm">{skill.name}</span>
-                      </div>
-                      <span className="text-xs text-muted-foreground">{skill.level}%</span>
+              <div className="grid grid-cols-2 gap-3">
+                {category.skills.map((skill) => (
+                  <div 
+                    key={skill.name} 
+                    className="group flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-primary/10 border border-transparent hover:border-primary/30 transition-all duration-300"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                      <skill.icon className="w-4 h-4 text-primary" />
                     </div>
-                    <div className="h-2 bg-muted rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-primary rounded-full transition-all duration-1000 ease-out"
-                        style={{ 
-                          width: `${skill.level}%`,
-                          animationDelay: `${(categoryIndex * 4 + skillIndex) * 0.1}s`
-                        }}
-                      />
-                    </div>
+                    <span className="font-medium text-sm">{skill.name}</span>
                   </div>
                 ))}
               </div>
