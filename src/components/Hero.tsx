@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import LightRays from './LightRays';
 
 const Hero: React.FC = () => {
   return (
@@ -7,6 +8,22 @@ const Hero: React.FC = () => {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
+      {/* Light Rays Effect */}
+      <LightRays
+        raysOrigin="top-center"
+        raysColor="#ffffff"
+        raysSpeed={1.4}
+        lightSpread={0.9}
+        rayLength={3}
+        followMouse={true}
+        mouseInfluence={0.2}
+        noiseAmount={0}
+        distortion={0}
+        pulsating={false}
+        fadeDistance={2}
+        saturation={0.6}
+      />
+
       {/* Background Effects */}
       <div className="absolute inset-0 bg-hero-pattern" />
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
@@ -14,7 +31,7 @@ const Hero: React.FC = () => {
       
       {/* Grid Pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.03] z-[2]"
         style={{
           backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
                            linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
