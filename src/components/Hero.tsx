@@ -29,15 +29,6 @@ const Hero: React.FC = () => {
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
       
-      {/* Grid Pattern */}
-      <div 
-        className="absolute inset-0 opacity-[0.03] z-[2]"
-        style={{
-          backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
-                           linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
-        }}
-      />
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
