@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
       {/* Light Rays Effect */}
       <LightRays
         raysOrigin="top-center"
-        raysColor="#ffffff"
+        raysColor="#a855f7"
         raysSpeed={1.4}
         lightSpread={0.9}
         rayLength={3}
@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
         distortion={0}
         pulsating={false}
         fadeDistance={2}
-        saturation={0.6}
+        saturation={0.8}
       />
 
       {/* Background Effects */}
