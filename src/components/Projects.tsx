@@ -47,12 +47,11 @@ const Projects: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-6 py-2 rounded-full bg-primary/20 text-primary font-semibold tracking-widest uppercase text-sm border border-primary/30">
-            Projetos
-          </span>
-          <p className="text-muted-foreground mt-6 max-w-xl mx-auto">
-            Uma seleção dos meus trabalhos mais recentes e projetos pessoais
-          </p>
+          <span className="text-primary font-mono text-sm tracking-wider uppercase">Meus Projetos</span>
+          <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-4">
+            <span className="gradient-text">Trabalhos</span> Recentes
+          </h2>
+          <div className="w-24 h-1 bg-gradient-primary mx-auto rounded-full" />
         </div>
 
         {/* Projects Grid */}
