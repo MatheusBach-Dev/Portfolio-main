@@ -21,15 +21,13 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   });
 
   useEffect(() => {
-    // Apply theme class to document
+    // Apply theme class to document (Tailwind uses ONLY the `dark` class)
     const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-      root.classList.remove('light');
-    } else {
-      root.classList.remove('dark');
-      root.classList.add('light');
-    }
+    root.classList.toggle('dark', theme === 'dark');
+
+    // Hint to the browser for native UI (forms/scrollbars)
+    root.style.colorScheme = theme;
+
     // Persist to localStorage
     localStorage.setItem('portfolio-theme', theme);
   }, [theme]);
