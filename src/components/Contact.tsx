@@ -77,12 +77,11 @@ const Contact: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-6 py-2 rounded-full bg-primary/20 text-primary font-semibold tracking-widest uppercase text-sm border border-primary/30">
-            Contato
-          </span>
-          <p className="text-muted-foreground mt-6 max-w-xl mx-auto">
-            Vamos conversar? Estou sempre aberto a novas oportunidades e conexões
-          </p>
+          <span className="text-primary font-mono text-sm tracking-wider uppercase">Contato</span>
+          <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-4">
+            Vamos <span className="gradient-text">Conversar</span>?
+          </h2>
+          <div className="w-24 h-1 bg-gradient-primary mx-auto rounded-full" />
         </div>
 
         {/* Two Column Layout */}
