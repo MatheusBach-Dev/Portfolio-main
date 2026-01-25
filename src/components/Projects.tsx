@@ -60,7 +60,11 @@ const Projects: React.FC = () => {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className="skill-card rounded-2xl overflow-hidden group"
+              className={`skill-card rounded-2xl overflow-hidden group border-2 border-transparent transition-all duration-300 ${
+                project.status === 'in-progress' 
+                  ? 'hover:border-yellow-400' 
+                  : 'hover:border-primary'
+              }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {/* Project Image Placeholder */}
