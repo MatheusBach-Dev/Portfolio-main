@@ -20,35 +20,6 @@ const Footer: React.FC = () => {
             &lt;Dev /&gt;
           </a>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-4">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-11 h-11 rounded-full bg-secondary border border-border flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary hover:text-primary"
-              aria-label="GitHub"
-            >
-              <Github size={20} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-11 h-11 rounded-full bg-secondary border border-border flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary hover:text-primary"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href="mailto:email@example.com"
-              className="w-11 h-11 rounded-full bg-secondary border border-border flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary hover:text-primary"
-              aria-label="Email"
-            >
-              <Mail size={20} />
-            </a>
-          </div>
-
           {/* Navigation Links */}
           <nav className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
             <a href="#home" className="hover:text-primary transition-colors">Home</a>
@@ -63,11 +34,8 @@ const Footer: React.FC = () => {
 
           {/* Copyright */}
           <div className="flex flex-col sm:flex-row items-center gap-2 text-sm text-muted-foreground">
-            <span>© {currentYear} Desenvolvedor.</span>
-            <span className="hidden sm:inline">•</span>
-            <span className="flex items-center gap-1">
-              Feito com <Heart className="w-4 h-4 text-primary fill-primary" /> e muito código
-            </span>
+            <span>© {currentYear} Matheus Bach</span>
+            <span className="hidden sm:inline">• Todos os direitos reservados</span>
           </div>
         </div>
 

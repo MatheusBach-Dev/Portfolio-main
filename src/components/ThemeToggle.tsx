@@ -12,7 +12,6 @@ const ThemeToggle: React.FC = () => {
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
       <div className="relative w-6 h-6">
-        {/* Sun Icon - visible in dark mode */}
         <Sun 
           className={`absolute inset-0 w-6 h-6 text-primary transition-all duration-300 ${
             theme === 'dark' 
@@ -20,7 +19,6 @@ const ThemeToggle: React.FC = () => {
               : 'opacity-0 rotate-90 scale-50'
           }`}
         />
-        {/* Moon Icon - visible in light mode */}
         <Moon 
           className={`absolute inset-0 w-6 h-6 text-primary transition-all duration-300 ${
             theme === 'light' 
@@ -30,7 +28,6 @@ const ThemeToggle: React.FC = () => {
         />
       </div>
       
-      {/* Glow effect on hover */}
       <div className="absolute inset-0 rounded-full bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-md" />
     </button>
   );
