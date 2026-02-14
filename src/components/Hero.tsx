@@ -28,12 +28,12 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-hero-pattern" />
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
-      
+
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Greeting */}
-          <div 
+          <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border mb-8 animate-fade-in"
             style={{ animationDelay: '0.2s' }}
           >
@@ -42,57 +42,28 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Name */}
-          <h1 
-            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 animate-fade-in"
+          <h1
+            className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 animate-fade-in"
             style={{ animationDelay: '0.4s' }}
           >
-            Olá, eu sou{' '}
+            Olá, eu sou <br />
             <span className="gradient-text glow-text">
-              Desenvolvedor
+              Matheus Bach
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p 
+          <p
             className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in"
             style={{ animationDelay: '0.6s' }}
           >
             Desenvolvedor Júnior focado em criar{' '}
             <span className="text-primary font-semibold">soluções reais</span>{' '}
-            com tecnologia e aprendizado constante
+            com tecnologia e aprendizado constante.
           </p>
 
-          {/* Social Links */}
-          <div 
-            className="flex items-center justify-center gap-4 mb-10 animate-fade-in"
-            style={{ animationDelay: '0.8s' }}
-          >
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-secondary border border-border flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary hover:text-primary"
-            >
-              <Github size={22} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-secondary border border-border flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary hover:text-primary"
-            >
-              <Linkedin size={22} />
-            </a>
-            <a
-              href="mailto:email@example.com"
-              className="w-12 h-12 rounded-full bg-secondary border border-border flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary hover:text-primary"
-            >
-              <Mail size={22} />
-            </a>
-          </div>
-
           {/* CTA Buttons */}
-          <div 
+          <div
             className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in"
             style={{ animationDelay: '1s' }}
           >

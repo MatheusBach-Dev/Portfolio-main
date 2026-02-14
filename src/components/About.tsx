@@ -1,12 +1,12 @@
-import React from 'react';
 import { Code2, GraduationCap, Rocket, Target } from 'lucide-react';
+import React from 'react';
 
 const About: React.FC = () => {
   const highlights = [
     {
       icon: Code2,
-      title: 'Paixão por Código',
-      description: 'Apaixonado por transformar ideias em código funcional e elegante'
+      title: 'Alta Performance em Projetos',
+      description: 'Experiência validada com 1º lugar entre 83 projetos apresentados.'
     },
     {
       icon: GraduationCap,
@@ -44,37 +44,30 @@ const About: React.FC = () => {
           {/* Text Content */}
           <div className="space-y-6">
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Olá! Sou um <span className="text-primary font-semibold">Desenvolvedor Júnior</span> apaixonado 
-              por tecnologia e programação. Minha jornada começou com a curiosidade de entender como 
-              as coisas funcionam por trás das telas.
+            Olá! Meu nome é <span className="text-primary font-semibold">Matheus Bach Preis Ferreira </span>e sou um <span className="text-primary font-semibold">Desenvolvedor Júnior</span> apaixonado por tecnologia e por transformar ideias em soluções reais. Minha jornada começou em uma escola tradicional, mas foi no Colégio Cotemig que descobri minha verdadeira paixão pela programação e decidi construir minha carreira na área.
             </p>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Atualmente, estou focado em desenvolvimento web, estudando constantemente novas 
-              tecnologias e frameworks. Através de cursos, projetos pessoais e muito prática, 
-              venho construindo uma base sólida em <span className="text-primary font-semibold">React, 
-              JavaScript, TypeScript</span> e tecnologias de back-end.
+              No meu terceiro ano do ensino médio, desenvolvi o Projeto <span className='text-primary font-semibold'>Moneta AI</span> na disciplina Projeto Software. Entre 83 projetos apresentados, nosso pitch foi eleito o Top 1, conquistando o <span className='text-primary font-semibold'>primeiro lugar</span> e uma premiação de R$ 3.000. Essa experiência reforçou minha capacidade de unir visão de produto, estratégia e desenvolvimento técnico para gerar resultados concretos.
             </p>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Meu objetivo é crescer como profissional, contribuir para projetos inovadores 
-              e fazer parte de equipes que valorizam o aprendizado e a colaboração. Estou 
-              sempre aberto a novos desafios e oportunidades!
+              Atualmente, estou focado em desenvolvimento web, com ênfase em <span className='text-primary font-semibold'>React, Node.js, Java e Angular,</span> trabalhando também com bancos de dados como <span className='text-primary font-semibold'>MySQL, Firebase e PostgreSQL.</span> Busco evoluir constantemente, enfrentar desafios maiores e contribuir para projetos de alto impacto em empresas que valorizam inovação e crescimento.
             </p>
 
             {/* Stats */}
             <div className="flex flex-wrap gap-8 pt-6">
               <div className="text-center">
-                <div className="text-4xl font-bold gradient-text">5+</div>
+                <div className="text-4xl font-bold gradient-text">7+</div>
                 <div className="text-sm text-muted-foreground mt-1">Projetos Concluídos</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold gradient-text">10+</div>
+                <div className="text-4xl font-bold gradient-text">7+</div>
                 <div className="text-sm text-muted-foreground mt-1">Tecnologias</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold gradient-text">∞</div>
-                <div className="text-sm text-muted-foreground mt-1">Vontade de Aprender</div>
+                <div className="text-4xl font-bold gradient-text">2+</div>
+                <div className="text-sm text-muted-foreground mt-1">anos de estudo</div>
               </div>
             </div>
           </div>

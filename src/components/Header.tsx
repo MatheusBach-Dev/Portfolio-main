@@ -36,7 +36,7 @@ const Header: React.FC = () => {
           href="#home" 
           className="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity"
         >
-          &lt;Dev /&gt;
+          &lt;Matheus Bach /&gt;
         </a>
 
         {/* Desktop Navigation */}
