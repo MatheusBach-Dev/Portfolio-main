@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
             className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 animate-fade-in"
             style={{ animationDelay: '0.4s' }}
           >
-            Olá, eu sou <br />
+            Olá, me chamo<br />
             <span className="gradient-text glow-text">
               Matheus Bach
             </span>
