@@ -15,30 +15,44 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'E-Commerce Dashboard',
-    description: 'Dashboard administrativo para gerenciamento de e-commerce com gráficos interativos, controle de estoque e relatórios de vendas.',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Recharts'],
-    githubUrl: 'https://github.com',
-    demoUrl: 'https://demo.com',
+    title: 'MonetaAI',
+    description: 'A MonetaAI é uma plataforma inteligente de controle financeiro pessoal que ajuda você a gerenciar suas despesas.',
+    image: '/public/moneta.png',
+    technologies: ['React', 'Vite', 'Node.js', 'Firebase'],
+    githubUrl: 'https://github.com/Matheus-f-dev/MonetaAi',
+    demoUrl: 'https://www.monetaai.site/',
     status: 'completed'
   },
   {
     id: 2,
-    title: 'Task Manager API',
-    description: 'API RESTful completa para gerenciamento de tarefas com autenticação JWT, CRUD completo e documentação Swagger.',
-    technologies: ['Node.js', 'Express', 'PostgreSQL', 'JWT'],
-    githubUrl: 'https://github.com',
+    title: 'LeveMente',
+    description: 'Landing Page criada para a captação de clientes de terapia.',
+    image: '/public/natasha.png',
+    technologies: ['React', 'Vite', 'Firebase', 'Tailwind'],
+    githubUrl: 'https://github.com/MatheusBach-Dev/natasha-flows',
+    demoUrl: 'https://www.natashapreis.com.br/',
     status: 'completed'
   },
   {
     id: 3,
-    title: 'Weather App',
-    description: 'Aplicação para consulta de clima em tempo real com geolocalização, previsão de 5 dias e interface intuitiva.',
-    technologies: ['React', 'JavaScript', 'OpenWeather API', 'CSS'],
-    githubUrl: 'https://github.com',
-    demoUrl: 'https://demo.com',
+    title: 'Neoflow',
+    description: 'Landing Page para a captação de empresas interessadas em automatizar seus fluxos com a IA da neoflow.',
+    image: '/public/neoflow.png',
+    technologies: ['React', 'Vite', 'Tailwind'],
+    githubUrl: 'https://github.com/MatheusBach-Dev/Neoflow-AI',
+    demoUrl: 'https://neoflow-ai-theta.vercel.app/',
+    status: 'completed'
+  },
+ {
+    id: 4,
+    title: 'Musique',
+    description: 'Site para o network de bandas e musicos. Com o objetivo de preencher uma lacuna para essa area',
+    image: '/public/musique.png',
+    technologies: ['Angular', 'Java', 'Spring Boot', 'PostgreSQL'],
+    githubUrl: 'https://github.com/MatheusBach-Dev/projeto-musica',
+    demoUrl: '',
     status: 'in-progress'
-  }
+  },
 ];
 
 const Projects: React.FC = () => {
@@ -66,11 +80,15 @@ const Projects: React.FC = () => {
               }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              {/* Project Image Placeholder */}
+              {/* Project Image */}
               <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Folder className="w-16 h-16 text-primary/50" />
-                </div>
+                {project.image ? (
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover rounded-t-1xl" />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Folder className="w-16 h-16 text-primary/50" />
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                 
                 {/* Status Badge */}
@@ -97,7 +115,7 @@ const Projects: React.FC = () => {
                     >
                       <Github size={18} />
                     </a>
-                    {project.demoUrl && (
+                    {project.demoUrl && project.status === 'completed' && (
                       <a
                         href={project.demoUrl}
                         target="_blank"
@@ -133,7 +151,7 @@ const Projects: React.FC = () => {
         {/* GitHub CTA */}
         <div className="text-center mt-12">
           <a
-            href="https://github.com"
+            href="https://github.com/MatheusBach-Dev"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary border border-border font-semibold transition-all duration-300 hover:scale-105 hover:border-primary hover:text-primary"
