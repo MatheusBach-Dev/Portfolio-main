@@ -46,7 +46,7 @@ const projects: Project[] = [
  {
     id: 4,
     title: 'Musique',
-    description: 'Site para o network de bandas e musicos. Com o objetivo de preencher uma lacuna para essa area',
+    description: 'Plataforma Web para Conexão entre Músicos. Com o objetivo de aprender as linguagens Java e Angular.',
     image: '/public/musique.png',
     technologies: ['Angular', 'Java', 'Spring Boot', 'PostgreSQL'],
     githubUrl: 'https://github.com/MatheusBach-Dev/projeto-musica',
