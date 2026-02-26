@@ -40,7 +40,7 @@ const projects: Project[] = [
     image: '/public/neoflow.png',
     technologies: ['React', 'Vite', 'Tailwind'],
     githubUrl: 'https://github.com/MatheusBach-Dev/Neoflow-AI',
-    demoUrl: 'https://neoflow-ai-theta.vercel.app/',
+    demoUrl: '',
     status: 'completed'
   },
  {
