@@ -34,7 +34,7 @@ const Header: React.FC = () => {
         {/* Logo */}
         <a 
           href="#home" 
-          className="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity"
+          className="text-2xl font-bold gradient-text2 hover:opacity-80 transition-opacity"
         >
           &lt;Matheus Bach /&gt;
         </a>

@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center gap-8">
           {/* Logo */}
           <a href="#home" className="text-3xl font-bold gradient-text">
-            &lt;Dev /&gt;
+            &lt;Matheus Bach /&gt;
           </a>
 
           {/* Navigation Links */}

@@ -136,6 +136,14 @@
     background-clip: text;
   }
 
+   .gradient-text2 {
+    background: linear-gradient(135deg, hsl(var(--text-gradient-start)), hsl(var(--text-gradient-end)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+
   /* Glass Effect */
   .glass {
     background: hsl(var(--surface-glass));
