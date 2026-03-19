@@ -53,6 +53,16 @@ const projects: Project[] = [
     demoUrl: '',
     status: 'in-progress'
   },
+  {
+    id: 5,
+    title: 'Prada Comercio Industrial',
+    description: 'Landing Page criada para Prada Comercio & Representação, para catalogar seus produtos.',
+    image: '/public/prada.PNG',
+    technologies: ['Angular'],
+    githubUrl: 'https://github.com/MatheusBach-Dev/prada-project',
+    demoUrl: '',
+    status: 'in-progress'
+  },
 ];
 
 const Projects: React.FC = () => {

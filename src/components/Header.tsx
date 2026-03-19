@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
+// import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { href: '#home', label: 'Home' },
@@ -31,7 +31,6 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        {/* Logo */}
         <a 
           href="#home" 
           className="text-2xl font-bold gradient-text2 hover:opacity-80 transition-opacity"
@@ -39,7 +38,6 @@ const Header: React.FC = () => {
           &lt;Matheus Bach /&gt;
         </a>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
@@ -52,11 +50,9 @@ const Header: React.FC = () => {
           ))}
         </nav>
 
-        {/* Theme Toggle & Mobile Menu */}
         <div className="flex items-center gap-4">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden w-10 h-10 rounded-lg bg-secondary flex items-center justify-center transition-colors hover:bg-primary hover:text-primary-foreground"
@@ -67,7 +63,6 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`md:hidden absolute top-full left-0 right-0 glass transition-all duration-300 overflow-hidden ${
           isMobileMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'

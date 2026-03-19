@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Send, Mail, MapPin, Linkedin, CheckCircle, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 interface FormData {
   name: string;
@@ -30,14 +31,23 @@ const Contact: React.FC = () => {
     setStatus({ type: 'loading' });
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
+      await emailjs.send(
+        'service_eevhcme',
+        'template_mf3fhfb',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'matheusbachsta@gmail.com',
+        },
+        'fpzEZq-LnWJ1i5xRj'
+      );
+
       setStatus({ 
         type: 'success', 
         message: 'Mensagem enviada com sucesso! Entrarei em contato em breve.' 
       });
       setFormData({ name: '', email: '', message: '' });
-      
       setTimeout(() => setStatus({ type: 'idle' }), 5000);
     } catch (error) {
       setStatus({ 
