@@ -83,16 +83,16 @@ const Contact: React.FC = () => {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
+      <div className="container mx-auto px-4 relative z-7">
+        <div className="text-center mb-3">
           <span className="text-primary font-mono text-sm tracking-wider uppercase">Contato</span>
-          <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-2">
             Vamos <span className="gradient-text">Conversar</span>?
           </h2>
           <div className="w-24 h-1 bg-gradient-primary mx-auto rounded-full" />
         </div>
 
-        <div className="max-w-3xl mx-auto mb-12 text-center   border-border rounded-2xl p-8">
+        <div className="max-w-3xl mx-auto mb-3 text-center   border-border rounded-2xl p-0 mb-6">
           <p className="text-muted-foreground leading-relaxed">
             Estou disponível para projetos freelancers, oportunidades de emprego ou apenas para trocar uma ideia sobre tecnologia. Não hesite em entrar em contato!
           </p>
@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
               {contactInfo.map((info) => (
                 <div
                   key={info.label}
-                  className="skill-card p-6 rounded-xl flex items-center gap-4 group hover:border-primary/50 transition-all duration-300 max-w-[290px]"
+                  className="skill-card p-4 rounded-xl flex items-center gap-4 group hover:border-primary/50 transition-all duration-300 max-w-[250px]"
                 >
                   <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
                     <info.icon className="w-5 h-5 text-primary" />

@@ -8,7 +8,6 @@ const Hero: React.FC = () => {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      {/* Light Rays Effect */}
       <LightRays
         raysOrigin="top-center"
         raysColor="#a855f7"
@@ -24,7 +23,7 @@ const Hero: React.FC = () => {
         saturation={0.8}
       />
 
-      {/* Background Effects */}
+    
       <div className="absolute inset-0 bg-hero-pattern" />
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
@@ -32,7 +31,7 @@ const Hero: React.FC = () => {
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Greeting */}
+      
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border mb-8 animate-fade-in"
             style={{ animationDelay: '0.2s' }}
@@ -41,7 +40,6 @@ const Hero: React.FC = () => {
             <span className="text-sm text-muted-foreground font-mono">Disponível para oportunidades</span>
           </div>
 
-          {/* Name */}
           <h1
             className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 animate-fade-in"
             style={{ animationDelay: '0.4s' }}
@@ -52,7 +50,7 @@ const Hero: React.FC = () => {
             </span>
           </h1>
 
-          {/* Subtitle */}
+      
           <p
             className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in"
             style={{ animationDelay: '0.6s' }}
@@ -62,7 +60,7 @@ const Hero: React.FC = () => {
             com tecnologia e aprendizado constante.
           </p>
 
-          {/* CTA Buttons */}
+          
           <div
             className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in"
             style={{ animationDelay: '1s' }}
@@ -84,7 +82,6 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 rounded-full border-2 border-primary/50 flex items-start justify-center p-1">
           <div className="w-1.5 h-3 rounded-full bg-primary animate-pulse" />

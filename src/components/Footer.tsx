@@ -15,12 +15,10 @@ const Footer: React.FC = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center gap-8">
-          {/* Logo */}
           <a href="#home" className="text-3xl font-bold gradient-text">
             &lt;Matheus Bach /&gt;
           </a>
 
-          {/* Navigation Links */}
           <nav className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
             <a href="#home" className="hover:text-primary transition-colors">Home</a>
             <a href="#about" className="hover:text-primary transition-colors">Sobre</a>
