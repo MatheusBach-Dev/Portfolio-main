@@ -40,7 +40,7 @@ const projects: Project[] = [
     image: '/public/neoflow.png',
     technologies: ['React', 'Vite', 'Tailwind'],
     githubUrl: 'https://github.com/MatheusBach-Dev/Neoflow-AI',
-    demoUrl: 'https://neoflow-ai-theta.vercel.app/',
+    demoUrl: '',
     status: 'completed'
   },
  {
@@ -50,6 +50,16 @@ const projects: Project[] = [
     image: '/public/musique.png',
     technologies: ['Angular', 'Java', 'Spring Boot', 'PostgreSQL'],
     githubUrl: 'https://github.com/MatheusBach-Dev/projeto-musica',
+    demoUrl: '',
+    status: 'in-progress'
+  },
+  {
+    id: 5,
+    title: 'Prada Comercio Industrial',
+    description: 'Landing Page criada para Prada Comercio & Representação, para catalogar seus produtos.',
+    image: '/public/prada.PNG',
+    technologies: ['Angular'],
+    githubUrl: 'https://github.com/MatheusBach-Dev/prada-project',
     demoUrl: '',
     status: 'in-progress'
   },

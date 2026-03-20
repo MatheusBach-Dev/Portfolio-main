@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Send, Mail, MapPin, Linkedin, CheckCircle, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 interface FormData {
   name: string;
@@ -30,14 +31,23 @@ const Contact: React.FC = () => {
     setStatus({ type: 'loading' });
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
+      await emailjs.send(
+        'service_eevhcme',
+        'template_mf3fhfb',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'matheusbachsta@gmail.com',
+        },
+        'fpzEZq-LnWJ1i5xRj'
+      );
+
       setStatus({ 
         type: 'success', 
         message: 'Mensagem enviada com sucesso! Entrarei em contato em breve.' 
       });
       setFormData({ name: '', email: '', message: '' });
-      
       setTimeout(() => setStatus({ type: 'idle' }), 5000);
     } catch (error) {
       setStatus({ 
@@ -51,31 +61,29 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       label: 'E-mail',
-      value: 'seu.email@exemplo.com',
-      href: 'mailto:seu.email@exemplo.com'
+      value: 'matheusbachsta@gmail.com',
+      href: 'mailto:matheusbachsta@gmail.com'
     },
     {
       icon: MapPin,
       label: 'Localização',
-      value: 'São Paulo, Brasil',
+      value: 'Belo Horizonte, Brasil',
       href: null
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      value: 'linkedin.com/in/seu-usuario',
-      href: 'https://linkedin.com/in/seu-usuario'
+      value: 'Meu contato',
+      href: 'https://www.linkedin.com/in/matheus-bach-preis-ferreira-747542319/'
     }
   ];
 
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
-      {/* Background Elements */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-primary font-mono text-sm tracking-wider uppercase">Contato</span>
           <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-4">
@@ -84,25 +92,19 @@ const Contact: React.FC = () => {
           <div className="w-24 h-1 bg-gradient-primary mx-auto rounded-full" />
         </div>
 
-        {/* Two Column Layout */}
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Left Column - Info */}
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Vamos trabalhar juntos?
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Estou disponível para projetos freelance, oportunidades de emprego ou apenas para trocar uma ideia sobre tecnologia. Não hesite em entrar em contato!
-              </p>
-            </div>
+        <div className="max-w-3xl mx-auto mb-12 text-center   border-border rounded-2xl p-8">
+          <p className="text-muted-foreground leading-relaxed">
+            Estou disponível para projetos freelancers, oportunidades de emprego ou apenas para trocar uma ideia sobre tecnologia. Não hesite em entrar em contato!
+          </p>
+        </div>
 
-            {/* Contact Cards */}
+        <div className="grid lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          <div className="space-y-4 lg:ml-40">
             <div className="space-y-4">
               {contactInfo.map((info) => (
                 <div
                   key={info.label}
-                  className="skill-card p-4 rounded-xl flex items-center gap-4 group hover:border-primary/50 transition-all duration-300"
+                  className="skill-card p-6 rounded-xl flex items-center gap-4 group hover:border-primary/50 transition-all duration-300 max-w-[290px]"
                 >
                   <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
                     <info.icon className="w-5 h-5 text-primary" />
@@ -127,10 +129,8 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column - Form */}
-          <div>
+          <div className="lg:-ml-10">
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Input */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Nome
@@ -147,7 +147,6 @@ const Contact: React.FC = () => {
                 />
               </div>
 
-              {/* Email Input */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
                   E-mail
@@ -164,7 +163,6 @@ const Contact: React.FC = () => {
                 />
               </div>
 
-              {/* Message Input */}
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
                   Mensagem
@@ -181,7 +179,6 @@ const Contact: React.FC = () => {
                 />
               </div>
 
-              {/* Status Messages */}
               {status.type === 'success' && (
                 <div className="flex items-center gap-2 p-4 rounded-lg bg-green-500/10 border border-green-500/30 text-green-500">
                   <CheckCircle className="w-5 h-5" />
@@ -196,7 +193,6 @@ const Contact: React.FC = () => {
                 </div>
               )}
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={status.type === 'loading'}

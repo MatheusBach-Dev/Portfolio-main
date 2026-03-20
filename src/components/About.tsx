@@ -54,15 +54,15 @@ const About: React.FC = () => {
             
             <div className="flex flex-wrap gap-8 pt-6">
               <div className="group text-center p-3 rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2 cursor-pointer">
-                <div className="text-3xl font-bold gradient-text">7+</div>
+                <div className="text-3xl font-bold gradient-text2">7+</div>
                 <div className="text-sm text-muted-foreground mt-1">Projetos Concluídos</div>
               </div>
               <div className="group text-center p-3 rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2 cursor-pointer">
-                <div className="text-3xl font-bold gradient-text">10+</div>
+                <div className="text-3xl font-bold gradient-text2">10+</div>
                 <div className="text-sm text-muted-foreground mt-1">Tecnologias</div>
               </div>
               <div className="group text-center p-3 rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2 cursor-pointer">
-                <div className="text-3xl font-bold gradient-text">2+</div>
+                <div className="text-3xl font-bold gradient-text2">2+</div>
                 <div className="text-sm text-muted-foreground mt-1">Anos de estudo</div>
               </div>
             </div>

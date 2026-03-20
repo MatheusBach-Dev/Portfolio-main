@@ -2,6 +2,8 @@ import { Monitor, Server, Database, Wrench, Icon } from "lucide-react";
 import SplitText from "./SplitText";
 import { SiAngular, SiMysql, SiFirebase, SiPostgresql } from "react-icons/si";
 
+
+
 const SkillIcons = {
   React: () => (
     <svg viewBox="0 0 24 24" fill="currentColor" className="skill-svg">
