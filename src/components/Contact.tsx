@@ -83,8 +83,8 @@ const Contact: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
-          <div className="space-y-5 lg:ml-40 flex flex-col justify-center">
+        <div className="grid lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="space-y-5 flex flex-col justify-start pt-6">
             {contactItems.map(({ icon: Icon, text, href }) => {
               const content = (
                 <div className="flex items-center gap-4">
@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
             })}
           </div>
 
-          <div className="lg:-ml-10">
+          <div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -171,7 +171,7 @@ const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={status.type === 'loading'}
-                className="w-full py-4 rounded-lg bg-gradient-primary text-primary-foreground font-semibold text-lg transition-all duration-300 hover:scale-[1.02] glow-primary btn-glow flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="w-full py-3 rounded-lg bg-gradient-primary text-primary-foreground font-semibold text-lg transition-all duration-300 hover:scale-[1.02] glow-primary btn-glow flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 {status.type === 'loading' ? (
                   <>
@@ -180,7 +180,7 @@ const Contact: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    <Send className="w-5 h-5" />
+                    <Send className="w-4 h-4" />
                     Enviar Mensagem
                   </>
                 )}
