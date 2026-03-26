@@ -37,7 +37,7 @@ const projects: Project[] = [
     id: 3,
     title: 'Neoflow',
     description: 'Landing Page para a captação de empresas interessadas em automatizar seus fluxos com a IA da neoflow.',
-    image: '/public/neoflow.png',
+    image: '/public/neoflow.PNG',
     technologies: ['React', 'Vite', 'Tailwind'],
     githubUrl: 'https://github.com/MatheusBach-Dev/Neoflow-AI',
     demoUrl: '',
