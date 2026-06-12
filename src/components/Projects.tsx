@@ -56,7 +56,7 @@ const projects: Project[] = [
    {
     id: 6,
     title: 'BH Tech',
-    description: 'Projeto acadêmico',
+    description: 'Loja Virtual de Produtos de Tecnologia (Projeto Acadêmico)',
     image: '/bhtech.PNG',
     technologies: ['HTML', 'CSS', 'JS'],
     githubUrl: 'https://github.com/MatheusBach-Dev/BHTech-Web',
