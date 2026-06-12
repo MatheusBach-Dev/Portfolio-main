@@ -60,7 +60,7 @@ const projects: Project[] = [
     image: '/bhtech.PNG',
     technologies: ['HTML', 'CSS', 'JS'],
     githubUrl: 'https://github.com/MatheusBach-Dev/BHTech-Web',
-    demoUrl: '',
+    demoUrl: 'https://bh-tech-web.vercel.app/',
     status: 'completed'
   },
  {
