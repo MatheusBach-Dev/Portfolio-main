@@ -1,5 +1,5 @@
-import React from 'react';
-import { ExternalLink, Github, Folder } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ExternalLink, Github, Folder, GitCommitHorizontal } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -20,7 +20,7 @@ const projects: Project[] = [
     image: '/moneta.PNG',
     technologies: ['React', 'Vite', 'Node.js', 'Firebase'],
     githubUrl: 'https://github.com/Matheus-f-dev/MonetaAi',
-    demoUrl: 'https://www.monetaai.site/',
+    demoUrl: '',
     status: 'completed'
   },
   {
@@ -31,6 +31,16 @@ const projects: Project[] = [
     technologies: ['Angular'],
     githubUrl: 'https://github.com/MatheusBach-Dev/prada-project',
     demoUrl: 'https://www.pradacomercio.com/',
+    status: 'completed'
+  },
+  {
+    id: 6,
+    title: 'BH Tech',
+    description: 'Loja Virtual de Produtos de Tecnologia (Projeto Acadêmico)',
+    image: '/bhtech.PNG',
+    technologies: ['HTML', 'CSS', 'JS'],
+    githubUrl: 'https://github.com/MatheusBach-Dev/BHTech-Web',
+    demoUrl: 'https://bh-tech-web.vercel.app/',
     status: 'completed'
   },
   {
@@ -53,16 +63,6 @@ const projects: Project[] = [
     demoUrl: '',
     status: 'completed'
   },
-   {
-    id: 6,
-    title: 'BH Tech',
-    description: 'Loja Virtual de Produtos de Tecnologia (Projeto Acadêmico)',
-    image: '/bhtech.PNG',
-    technologies: ['HTML', 'CSS', 'JS'],
-    githubUrl: 'https://github.com/MatheusBach-Dev/BHTech-Web',
-    demoUrl: 'https://bh-tech-web.vercel.app/',
-    status: 'completed'
-  },
  {
     id: 5,
     title: 'Musique',
@@ -75,7 +75,33 @@ const projects: Project[] = [
   },
 ];
 
+async function getCommitCount(owner: string, repo: string): Promise<number> {
+  const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?per_page=1`);
+  if (!res.ok) return 0;
+  const link = res.headers.get('Link');
+  if (!link) return 1;
+  const match = link.match(/&page=(\d+)>; rel="last"/);
+  return match ? parseInt(match[1]) : 1;
+}
+
+function parseRepo(githubUrl: string): { owner: string; repo: string } | null {
+  const match = githubUrl.match(/github\.com\/([^\/]+)\/([^\/]+)/);
+  return match ? { owner: match[1], repo: match[2] } : null;
+}
+
 const Projects: React.FC = () => {
+  const [commitCounts, setCommitCounts] = useState<Record<number, number | null>>({});
+
+  useEffect(() => {
+    projects.forEach(project => {
+      const parsed = parseRepo(project.githubUrl);
+      if (!parsed) return;
+      getCommitCount(parsed.owner, parsed.repo).then(count => {
+        setCommitCounts(prev => ({ ...prev, [project.id]: count }));
+      });
+    });
+  }, []);
+
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
@@ -162,6 +188,15 @@ const Projects: React.FC = () => {
                       {tech}
                     </span>
                   ))}
+                </div>
+
+                <div className="mt-4 flex items-center gap-1.5 text-muted-foreground">
+                  <GitCommitHorizontal size={14} />
+                  <span className="text-xs font-mono">
+                    {commitCounts[project.id] == null
+                      ? '...'
+                      : `${commitCounts[project.id]} commits`}
+                  </span>
                 </div>
               </div>
             </div>

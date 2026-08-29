@@ -30,14 +30,7 @@ const Header: React.FC = () => {
           : 'bg-transparent py-5'
       }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between relative">
-        <a 
-          href="#home" 
-          className="text-2xl font-bold gradient-text2 hover:opacity-80 transition-opacity"
-        >
-          &lt;Matheus Bach /&gt;
-        </a>
-
+      <div className="container mx-auto px-4 flex items-center justify-between relative min-h-[40px]">
         <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
             <a

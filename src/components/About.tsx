@@ -1,13 +1,8 @@
-import { Code2, GraduationCap, Rocket, Target } from 'lucide-react';
+import { GraduationCap, Rocket, Target, Trophy } from 'lucide-react';
 import React from 'react';
 
 const About: React.FC = () => {
   const highlights = [
-    {
-      icon: Code2,
-      title: 'Alta Performance em Projetos',
-      description: 'Experiência validada com 1º lugar entre 83 projetos apresentados.'
-    },
     {
       icon: GraduationCap,
       title: 'Aprendizado Contínuo',
@@ -40,21 +35,23 @@ const About: React.FC = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-lg border border-border bg-card">
+              <Trophy className="w-4 h-4 text-yellow-500 shrink-0" />
+              <span className="text-sm font-medium">1º lugar entre 83 projetos</span>
+              <span className="text-sm text-muted-foreground">— Moneta AI</span>
+            </div>
+
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Olá! Meu nome é <span className="text-primary font-semibold">Matheus Bach Preis Ferreira </span>e sou um <span className="text-primary font-semibold">Desenvolvedor Júnior</span> apaixonado por tecnologia e por transformar ideias em soluções reais. Minha jornada começou em uma escola tradicional, mas foi no Colégio Cotemig que descobri minha verdadeira paixão pela programação e decidi construir minha carreira na área.
+              Sou <span className="text-foreground font-semibold">Matheus Bach</span>, Desenvolvedor Júnior apaixonado por transformar ideias em produto. Comecei no Colégio Cotemig, onde descobri a programação e decidi construir minha carreira na área.
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              No meu terceiro ano do ensino médio, desenvolvi o Projeto <span className='text-primary font-semibold'>Moneta AI</span> na disciplina Projeto Software. Entre 83 projetos apresentados, nosso pitch foi eleito o Top 1, conquistando o <span className='text-primary font-semibold'>primeiro lugar</span> e uma premiação de R$ 3.000. Essa experiência reforçou minha capacidade de unir visão de produto, estratégia e desenvolvimento técnico para gerar resultados concretos.
-            </p>
-
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Busco evoluir constantemente, enfrentar desafios maiores e contribuir para projetos de alto impacto em empresas que valorizam inovação e crescimento.
+              No terceiro ano, desenvolvi o <span className="text-foreground font-semibold">Moneta AI</span> — plataforma de controle financeiro com IA — que conquistou o primeiro lugar na disciplina Projeto Software, unindo visão de produto e desenvolvimento técnico para gerar resultado real.
             </p>
             
             <div className="flex flex-wrap gap-8 pt-6">
               <div className="group text-center p-3 rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2 cursor-pointer">
-                <div className="text-3xl font-bold gradient-text2">7+</div>
+                <div className="text-3xl font-bold gradient-text2">8+</div>
                 <div className="text-sm text-muted-foreground mt-1">Projetos Concluídos</div>
               </div>
               <div className="group text-center p-3 rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2 cursor-pointer">
@@ -62,7 +59,7 @@ const About: React.FC = () => {
                 <div className="text-sm text-muted-foreground mt-1">Tecnologias</div>
               </div>
               <div className="group text-center p-3 rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2 cursor-pointer">
-                <div className="text-3xl font-bold gradient-text2">2+</div>
+                <div className="text-3xl font-bold gradient-text2">3+</div>
                 <div className="text-sm text-muted-foreground mt-1">Anos de estudo</div>
               </div>
             </div>

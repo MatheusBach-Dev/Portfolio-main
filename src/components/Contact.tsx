@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Mail, MapPin, Linkedin, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, Mail, MapPin, Linkedin, Github, CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 interface FormData {
@@ -58,9 +58,10 @@ const Contact: React.FC = () => {
   };
 
   const contactItems = [
+    { icon: Github, text: 'MatheusBach-Dev', href: 'https://github.com/MatheusBach-Dev' },
+    { icon: Linkedin, text: 'LinkedIn', href: 'https://www.linkedin.com/in/matheus-bach-preis-ferreira-747542319/' },
     { icon: Mail, text: 'matheusbachsta@gmail.com', href: 'mailto:matheusbachsta@gmail.com' },
     { icon: MapPin, text: 'Belo Horizonte, Brasil', href: null },
-    { icon: Linkedin, text: 'LinkedIn', href: 'https://www.linkedin.com/in/matheus-bach-preis-ferreira-747542319/' },
   ];
 
   return (
@@ -87,19 +88,17 @@ const Contact: React.FC = () => {
           <div className="space-y-5 flex flex-col justify-start pt-6">
             {contactItems.map(({ icon: Icon, text, href }) => {
               const content = (
-                <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  <span className="text-foreground">{text}</span>
+                <div className="flex items-center gap-3">
+                  <Icon size={18} className="text-muted-foreground shrink-0" />
+                  <span className="text-sm text-foreground">{text}</span>
                 </div>
               );
               return href ? (
-                <a key={text} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined} className="hover:opacity-80 transition-opacity">
+                <a key={text} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined} className="text-muted-foreground hover:text-foreground transition-colors">
                   {content}
                 </a>
               ) : (
-                <div key={text}>{content}</div>
+                <div key={text} className="text-muted-foreground">{content}</div>
               );
             })}
           </div>
