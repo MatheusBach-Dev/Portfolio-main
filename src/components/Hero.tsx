@@ -8,22 +8,24 @@ const Hero: React.FC = () => {
       id="home"
       className="min-h-screen flex items-center relative overflow-hidden"
     >
-      <LightRays
-        rayColor1="#FFFCF8"
-        rayColor2="#aaaaaa"
-        speed={2.5}
-        intensity={2.4}
-        spread={2}
-        origin="top-right"
-        tilt={0}
-        saturation={0}
-        blend={0.75}
-        falloff={1.6}
-        opacity={0.6}
-      />
+      <div className="hidden lg:block">
+        <LightRays
+          rayColor1="#FFFCF8"
+          rayColor2="#aaaaaa"
+          speed={2.5}
+          intensity={2.4}
+          spread={2}
+          origin="top-right"
+          tilt={0}
+          saturation={0}
+          blend={0.75}
+          falloff={1.6}
+          opacity={0.6}
+        />
+      </div>
 
-      <div className="container mx-auto px-6 lg:px-12 py-24 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="container mx-auto px-6 lg:px-12 py-16 lg:py-24 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
 
           {/* Coluna esquerda — texto */}
           <div className="flex flex-col items-start">
@@ -101,10 +103,10 @@ const Hero: React.FC = () => {
 
           {/* Coluna direita — foto */}
           <div
-            className="flex justify-center lg:justify-end animate-fade-in"
+            className="flex justify-center lg:justify-end animate-fade-in order-first lg:order-last"
             style={{ animationDelay: '0.4s' }}
           >
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+            <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96">
               {/* Borda sutil */}
               <div className="absolute inset-0 rounded-2xl border border-border/40" />
 

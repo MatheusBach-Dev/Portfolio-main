@@ -39,7 +39,6 @@
 
     --radius: 0.75rem;
 
-    /* Custom Portfolio Tokens - Light */
     --glow-primary: 30 10% 4%;
     --glow-secondary: 30 5% 20%;
     --surface-elevated: 40 100% 99%;
@@ -54,7 +53,7 @@
   }
 
   .dark {
-    /* Dark Theme */
+  
     --background: 30 10% 4%;
     --foreground: 40 100% 99%;
 
@@ -83,7 +82,6 @@
     --input: 30 6% 16%;
     --ring: 40 100% 99%;
 
-    /* Custom Portfolio Tokens - Dark */
     --glow-primary: 40 100% 99%;
     --glow-secondary: 40 60% 85%;
     --surface-elevated: 30 8% 10%;

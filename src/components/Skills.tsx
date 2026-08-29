@@ -2,8 +2,6 @@ import { Monitor, Server, Database, Wrench, Icon } from "lucide-react";
 import SplitText from "./SplitText";
 import { SiAngular, SiMysql, SiFirebase, SiPostgresql } from "react-icons/si";
 
-
-
 const SkillIcons = {
   React: () => (
     <svg viewBox="0 0 24 24" fill="currentColor" className="skill-svg">
@@ -69,6 +67,11 @@ const SkillIcons = {
       <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
     </svg>
   ),
+  GitLab: () => (
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 01-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 014.82 2a.43.43 0 01.58 0 .42.42 0 01.11.18l2.44 7.49h8.1l2.44-7.49a.42.42 0 01.11-.18.43.43 0 01.58 0 .42.42 0 01.11.18l2.44 7.51 1.22 3.78a.84.84 0 01-.3.94z" />
+    </svg>
+  ),
   Vite: () => (
     <svg viewBox="0 0 24 24" fill="currentColor" className="skill-svg">
       <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
@@ -101,7 +104,7 @@ const skillCategories = [
       { name: "JavaScript", Icon: SkillIcons.JavaScript },
       { name: "TypeScript", Icon: SkillIcons.TypeScript },
       { name: "HTML5", Icon: SkillIcons.HTML5 },
-      { name: "CSS3", Icon: SkillIcons.CSS3 },  
+      { name: "CSS3", Icon: SkillIcons.CSS3 },
     ],
   },
   {
@@ -112,7 +115,11 @@ const skillCategories = [
       { name: "Java", Icon: SkillIcons.Java },
       { name: "Spring Boot", Icon: SkillIcons.SpringBoot },
       { name: "REST APIs", Icon: SkillIcons.API },
-      { name: "Python (learning) IA", Icon: SkillIcons.Python, isLearning: true },
+      {
+        name: "Python (learning) IA",
+        Icon: SkillIcons.Python,
+        isLearning: true,
+      },
     ],
   },
   {
@@ -131,6 +138,7 @@ const skillCategories = [
     skills: [
       { name: "Git", Icon: SkillIcons.Git },
       { name: "GitHub", Icon: SkillIcons.GitHub },
+      { name: "GitLab", Icon: SkillIcons.GitLab },
       { name: "Vite", Icon: SkillIcons.Vite },
       { name: "Figma", Icon: SkillIcons.Figma },
     ],
@@ -139,10 +147,15 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="skills section py-24 relative overflow-hidden">
+    <section
+      id="skills"
+      className="skills section py-24 relative overflow-hidden"
+    >
       <div className="skills-container">
         <div className="text-center mb-16">
-          <span className="text-primary font-mono text-sm tracking-wider uppercase">Habilidades</span>
+          <span className="text-primary font-mono text-sm tracking-wider uppercase">
+            Habilidades
+          </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-4">
             Minhas <span className="gradient-text">Habilidades</span>
           </h2>
@@ -187,8 +200,13 @@ export default function Skills() {
 
               <div className="skills-grid">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className={`skill-card ${skill.isLearning ? 'skill-learning' : ''}`}>
-                    <div className="skill-icon"><skill.Icon /></div>
+                  <div
+                    key={skillIndex}
+                    className={`skill-card ${skill.isLearning ? "skill-learning" : ""}`}
+                  >
+                    <div className="skill-icon">
+                      <skill.Icon />
+                    </div>
                     <span className="skill-name">{skill.name}</span>
                   </div>
                 ))}

@@ -10,6 +10,7 @@ interface Project {
   demoUrl?: string;
   image?: string;
   status: 'completed' | 'in-progress';
+  freelancer?: boolean;
 }
 
 const projects: Project[] = [
@@ -31,7 +32,8 @@ const projects: Project[] = [
     technologies: ['Angular'],
     githubUrl: 'https://github.com/MatheusBach-Dev/prada-project',
     demoUrl: 'https://www.pradacomercio.com/',
-    status: 'completed'
+    status: 'completed',
+    freelancer: true
   },
   {
     id: 6,
@@ -51,7 +53,8 @@ const projects: Project[] = [
     technologies: ['React', 'Vite', 'Firebase', 'Tailwind'],
     githubUrl: 'https://github.com/MatheusBach-Dev/natasha-flows',
     demoUrl: 'https://www.natashapreis.com.br/',
-    status: 'completed'
+    status: 'completed',
+    freelancer: true
   },
   {
     id: 3,
@@ -61,7 +64,19 @@ const projects: Project[] = [
     technologies: ['React', 'Vite', 'Tailwind'],
     githubUrl: 'https://github.com/MatheusBach-Dev/Neoflow-AI',
     demoUrl: '',
-    status: 'completed'
+    status: 'completed',
+    freelancer: true
+  },
+  {
+    id: 7,
+    title: 'BH Celulares',
+    description: 'Landing page profissional para a BH Celulares, loja especializada em iPhone e Xiaomi em Belo Horizonte.',
+    image: '/bh-celulareS.PNG',
+    technologies: ['React'],
+    githubUrl: 'https://github.com/MatheusBach-Dev/BH-MVP',
+    demoUrl: '',
+    status: 'completed',
+    freelancer: true
   },
  {
     id: 5,
@@ -105,7 +120,7 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
+
         <div className="text-center mb-16">
           <span className="text-primary font-mono text-sm tracking-wider uppercase">Meus Projetos</span>
           <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-4">
@@ -114,7 +129,6 @@ const Projects: React.FC = () => {
           <div className="w-24 h-1 bg-gradient-primary mx-auto rounded-full" />
         </div>
 
-        {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div
@@ -126,7 +140,6 @@ const Projects: React.FC = () => {
               }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              {/* Project Image */}
               <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 relative overflow-hidden">
                 {project.image ? (
                   <img src={project.image} alt={project.title} className="w-full h-full object-cover rounded-t-1xl" />
@@ -136,8 +149,13 @@ const Projects: React.FC = () => {
                   </div>
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-                
-                {/* Status Badge */}
+ 
+                {project.freelancer && (
+                  <span className="absolute top-3 left-3 px-2 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-widest rounded-md border border-border/60 bg-background/60 backdrop-blur-sm text-muted-foreground">
+                    Freelancer
+                  </span>
+                )}
+
                 {project.status === 'in-progress' && (
                   <span className="absolute top-4 right-4 px-3 py-1 text-xs font-semibold rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 uppercase tracking-wide">
                     Em Andamento

@@ -93,10 +93,6 @@
   color: hsl(var(--foreground));
 }
 
-.skill-card.skill-learning:hover {
-  border: 2px solid hsl(var(--border));
-}
-
 @media (max-width: 768px) {
   .skills-category {
     padding: 1.5rem;
