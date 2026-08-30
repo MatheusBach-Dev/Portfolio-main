@@ -49,7 +49,7 @@ const About: React.FC = () => {
               No terceiro ano, desenvolvi o <span className="text-foreground font-semibold">Moneta AI</span> — plataforma de controle financeiro com IA — que conquistou o primeiro lugar na disciplina Projeto Software, unindo visão de produto e desenvolvimento técnico para gerar resultado real.
             </p>
             
-            <div className="flex flex-wrap gap-8 pt-6">
+            <div className="grid grid-cols-3 gap-3 pt-6">
               <div className="group text-center p-3 rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2 cursor-pointer">
                 <div className="text-3xl font-bold gradient-text2">8+</div>
                 <div className="text-sm text-muted-foreground mt-1">Projetos Concluídos</div>
@@ -65,7 +65,7 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 lg:mt-0">
+          <div className="grid sm:grid-cols-2 gap-4 lg:mt-0">
             {highlights.map((item, index) => (
               <div
                 key={item.title}
