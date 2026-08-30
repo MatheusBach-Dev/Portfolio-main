@@ -65,7 +65,7 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-4 lg:mt-0">
+          <div className="grid grid-cols-3 gap-4 lg:mt-0">
             {highlights.map((item, index) => (
               <div
                 key={item.title}

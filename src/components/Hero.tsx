@@ -103,7 +103,7 @@ const Hero: React.FC = () => {
 
           {/* Coluna direita — foto */}
           <div
-            className="flex justify-center lg:justify-end animate-fade-in order-last"
+            className="hidden lg:flex justify-end animate-fade-in order-last"
             style={{ animationDelay: '0.4s' }}
           >
             <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96">
