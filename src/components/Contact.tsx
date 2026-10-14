@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Send, Mail, MapPin, Linkedin, Github, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, Mail, MapPin, Linkedin, Github, CheckCircle, AlertCircle, MessageCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface FormData {
   name: string;
@@ -8,22 +9,29 @@ interface FormData {
   message: string;
 }
 
+type FormStatusType = 'idle' | 'loading' | 'success' | 'error';
+
 interface FormStatus {
-  type: 'idle' | 'loading' | 'success' | 'error';
+  type: FormStatusType;
   message?: string;
 }
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const { t } = useLanguage();
+  const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' });
   const [status, setStatus] = useState<FormStatus>({ type: 'idle' });
+
+  const contactItems = [
+    { icon: MessageCircle, text: '(31) 98916-6024', href: 'https://wa.me/5531989166024' },
+    { icon: Github, text: 'MatheusBach-Dev', href: 'https://github.com/MatheusBach-Dev' },
+    { icon: Linkedin, text: 'LinkedIn', href: 'https://www.linkedin.com/in/matheus-bach-preis-ferreira-747542319/' },
+    { icon: Mail, text: 'matheusbachsta@gmail.com', href: 'mailto:matheusbachsta@gmail.com' },
+    { icon: MapPin, text: 'Belo Horizonte, Brasil', href: null },
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -43,26 +51,13 @@ const Contact: React.FC = () => {
         'fpzEZq-LnWJ1i5xRj'
       );
 
-      setStatus({ 
-        type: 'success', 
-        message: 'Mensagem enviada com sucesso! Entrarei em contato em breve.' 
-      });
+      setStatus({ type: 'success', message: t.contact.form.success });
       setFormData({ name: '', email: '', message: '' });
       setTimeout(() => setStatus({ type: 'idle' }), 5000);
-    } catch (error) {
-      setStatus({ 
-        type: 'error', 
-        message: 'Erro ao enviar mensagem. Por favor, tente novamente.' 
-      });
+    } catch {
+      setStatus({ type: 'error', message: t.contact.form.error });
     }
   };
-
-  const contactItems = [
-    { icon: Github, text: 'MatheusBach-Dev', href: 'https://github.com/MatheusBach-Dev' },
-    { icon: Linkedin, text: 'LinkedIn', href: 'https://www.linkedin.com/in/matheus-bach-preis-ferreira-747542319/' },
-    { icon: Mail, text: 'matheusbachsta@gmail.com', href: 'mailto:matheusbachsta@gmail.com' },
-    { icon: MapPin, text: 'Belo Horizonte, Brasil', href: null },
-  ];
 
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
@@ -71,17 +66,15 @@ const Contact: React.FC = () => {
 
       <div className="container mx-auto px-4 relative z-7">
         <div className="text-center mb-3">
-          <span className="text-primary font-mono text-sm tracking-wider uppercase">Contato</span>
+          <span className="text-primary font-mono text-sm tracking-wider uppercase">{t.contact.sectionLabel}</span>
           <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-2">
-            Vamos <span className="gradient-text">Conversar</span>?
+            {t.contact.title} <span className="gradient-text">{t.contact.titleHighlight}</span>{t.contact.titleSuffix}
           </h2>
           <div className="w-24 h-1 bg-gradient-primary mx-auto rounded-full" />
         </div>
 
-        <div className="max-w-3xl mx-auto mb-3 text-center   border-border rounded-2xl p-0 mb-6">
-          <p className="text-muted-foreground leading-relaxed">
-            Estou disponível para projetos freelancers, oportunidades de emprego ou apenas para trocar uma ideia sobre tecnologia. Não hesite em entrar em contato!
-          </p>
+        <div className="max-w-3xl mx-auto mb-3 text-center border-border rounded-2xl p-0 mb-6">
+          <p className="text-muted-foreground leading-relaxed">{t.contact.description}</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -94,7 +87,13 @@ const Contact: React.FC = () => {
                 </div>
               );
               return href ? (
-                <a key={text} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined} className="text-muted-foreground hover:text-foreground transition-colors">
+                <a
+                  key={text}
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   {content}
                 </a>
               ) : (
@@ -107,7 +106,7 @@ const Contact: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Nome
+                  {t.contact.form.name}
                 </label>
                 <input
                   type="text"
@@ -116,14 +115,14 @@ const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder="Seu nome completo"
+                  placeholder={t.contact.form.namePlaceholder}
                   className="w-full px-4 py-3 rounded-lg bg-muted/50 border border-border input-focus outline-none placeholder:text-muted-foreground/50"
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  E-mail
+                  {t.contact.form.email}
                 </label>
                 <input
                   type="email"
@@ -132,14 +131,14 @@ const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="seu.email@exemplo.com"
+                  placeholder={t.contact.form.emailPlaceholder}
                   className="w-full px-4 py-3 rounded-lg bg-muted/50 border border-border input-focus outline-none placeholder:text-muted-foreground/50"
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Mensagem
+                  {t.contact.form.message}
                 </label>
                 <textarea
                   id="message"
@@ -148,7 +147,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  placeholder="Escreva sua mensagem aqui..."
+                  placeholder={t.contact.form.messagePlaceholder}
                   className="w-full px-4 py-3 rounded-lg bg-muted/50 border border-border input-focus outline-none resize-none placeholder:text-muted-foreground/50"
                 />
               </div>
@@ -175,12 +174,12 @@ const Contact: React.FC = () => {
                 {status.type === 'loading' ? (
                   <>
                     <div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                    Enviando...
+                    {t.contact.form.sending}
                   </>
                 ) : (
                   <>
                     <Send className="w-4 h-4" />
-                    Enviar Mensagem
+                    {t.contact.form.submit}
                   </>
                 )}
               </button>

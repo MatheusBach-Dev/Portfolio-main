@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-// import ThemeToggle from './ThemeToggle';
-
-const navLinks = [
-  { href: '#home', label: 'Home' },
-  { href: '#about', label: 'Sobre' },
-  { href: '#skills', label: 'Habilidades' },
-  { href: '#projects', label: 'Projetos' },
-  { href: '#contact', label: 'Contato' },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageToggle from './LanguageToggle';
 
 const Header: React.FC = () => {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const navLinks = [
+    { href: '#home', label: t.nav.home },
+    { href: '#about', label: t.nav.about },
+    { href: '#skills', label: t.nav.skills },
+    { href: '#projects', label: t.nav.projects },
+    { href: '#contact', label: t.nav.contact },
+  ];
+
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -25,9 +25,7 @@ const Header: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'glass py-3'
-          : 'bg-transparent py-5'
+        isScrolled ? 'glass py-3' : 'bg-transparent py-5'
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between relative min-h-[40px]">
@@ -43,9 +41,8 @@ const Header: React.FC = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
-          {/* <ThemeToggle /> */}
-          
+        <div className="flex items-center gap-3 ml-auto">
+          <LanguageToggle />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden w-10 h-10 rounded-lg bg-secondary flex items-center justify-center transition-colors hover:bg-primary hover:text-primary-foreground"

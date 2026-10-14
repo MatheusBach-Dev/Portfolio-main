@@ -1,118 +1,144 @@
-import React, { useEffect, useState } from 'react';
-import { ExternalLink, Github, Folder, GitCommitHorizontal } from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import {
+  ExternalLink,
+  Github,
+  Folder,
+  GitCommitHorizontal,
+} from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+type DescriptionKey = keyof ReturnType<
+  typeof useLanguage
+>["t"]["projects"]["descriptions"];
 
 interface Project {
   id: number;
   title: string;
-  description: string;
+  descriptionKey: DescriptionKey;
   technologies: string[];
   githubUrl: string;
   demoUrl?: string;
   image?: string;
-  status: 'completed' | 'in-progress';
+  status: "completed" | "in-progress";
   freelancer?: boolean;
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: 'MonetaAI',
-    description: 'A MonetaAI é uma plataforma inteligente de controle financeiro pessoal que ajuda você a gerenciar suas despesas.',
-    image: '/moneta.PNG',
-    technologies: ['React', 'Vite', 'Node.js', 'Firebase'],
-    githubUrl: 'https://github.com/Matheus-f-dev/MonetaAi',
-    demoUrl: '',
-    status: 'completed'
+    title: "MonetaAI",
+    descriptionKey: "MonetaAI",
+    image: "/moneta.PNG",
+    technologies: ["React", "Vite", "Node.js", "Firebase"],
+    githubUrl: "https://github.com/Matheus-f-dev/MonetaAi",
+    demoUrl: "",
+    status: "completed",
   },
   {
     id: 4,
-    title: 'Prada Comercio Industrial',
-    description: 'Landing Page criada para Prada Comercio & Representação, para catalogar seus produtos.',
-    image: '/prada.PNG',
-    technologies: ['Angular'],
-    githubUrl: 'https://github.com/MatheusBach-Dev/prada-project',
-    demoUrl: 'https://www.pradacomercio.com/',
-    status: 'completed',
-    freelancer: true
+    title: "Prada Comercio Industrial",
+    descriptionKey: "PradaComercio",
+    image: "/prada.PNG",
+    technologies: ["Angular"],
+    githubUrl: "https://github.com/MatheusBach-Dev/prada-project",
+    demoUrl: "https://www.pradacomercio.com/",
+    status: "completed",
+    freelancer: true,
   },
   {
     id: 6,
-    title: 'BH Tech',
-    description: 'Loja Virtual de Produtos de Tecnologia (Projeto Acadêmico)',
-    image: '/bhtech.PNG',
-    technologies: ['HTML', 'CSS', 'JS'],
-    githubUrl: 'https://github.com/MatheusBach-Dev/BHTech-Web',
-    demoUrl: 'https://bh-tech-web.vercel.app/',
-    status: 'completed'
+    title: "BH Tech",
+    descriptionKey: "BHTech",
+    image: "/bhtech.PNG",
+    technologies: ["HTML", "CSS", "JS"],
+    githubUrl: "https://github.com/MatheusBach-Dev/BHTech-Web",
+    demoUrl: "https://bh-tech-web.vercel.app/",
+    status: "completed",
   },
   {
     id: 2,
-    title: 'LeveMente',
-    description: 'Landing Page criada para a captação de clientes de terapia.',
-    image: '/natasha.PNG',
-    technologies: ['React', 'Vite', 'Firebase', 'Tailwind'],
-    githubUrl: 'https://github.com/MatheusBach-Dev/natasha-flows',
-    demoUrl: 'https://www.natashapreis.com.br/',
-    status: 'completed',
-    freelancer: true
+    title: "LeveMente",
+    descriptionKey: "LeveMente",
+    image: "/natasha.PNG",
+    technologies: ["React", "Vite", "Firebase", "Tailwind"],
+    githubUrl: "https://github.com/MatheusBach-Dev/natasha-flows",
+    demoUrl: "https://www.natashapreis.com.br/",
+    status: "completed",
+    freelancer: true,
+  },
+  {
+    id: 8,
+    title: "Planilha Financeira",
+    descriptionKey: "PlanilhaFinanceira",
+    image: "/planilha.PNG",
+    technologies: ["HTML", "JS", "CSS", "Firebase", "GROQAI"],
+    githubUrl: "https://github.com/MatheusBach-Dev/planilha-financeira",
+    demoUrl: "https://testeplanilha.vercel.app/",
+    status: "completed",
+    freelancer: false,
   },
   {
     id: 3,
-    title: 'Neoflow',
-    description: 'Landing Page para a captação de empresas interessadas em automatizar seus fluxos com a IA da neoflow.',
-    image: '/neoflow.PNG',
-    technologies: ['React', 'Vite', 'Tailwind'],
-    githubUrl: 'https://github.com/MatheusBach-Dev/Neoflow-AI',
-    demoUrl: '',
-    status: 'completed',
-    freelancer: true
+    title: "Neoflow",
+    descriptionKey: "Neoflow",
+    image: "/neoflow.PNG",
+    technologies: ["React", "Vite", "Tailwind"],
+    githubUrl: "https://github.com/MatheusBach-Dev/Neoflow-AI",
+    demoUrl: "",
+    status: "completed",
+    freelancer: true,
   },
   {
     id: 7,
-    title: 'BH Celulares',
-    description: 'Landing page profissional para a BH Celulares, loja especializada em iPhone e Xiaomi em Belo Horizonte.',
-    image: '/bh-celulareS.PNG',
-    technologies: ['React'],
-    githubUrl: 'https://github.com/MatheusBach-Dev/BH-MVP',
-    demoUrl: '',
-    status: 'completed',
-    freelancer: true
+    title: "BH Celulares",
+    descriptionKey: "BHCelulares",
+    image: "/bh-celulareS.PNG",
+    technologies: ["React"],
+    githubUrl: "https://github.com/MatheusBach-Dev/BH-MVP",
+    demoUrl: "",
+    status: "completed",
+    freelancer: true,
   },
- {
-    id: 5,
-    title: 'Musique',
-    description: 'Plataforma Web para Conexão entre Músicos. Com o objetivo de aprender as linguagens Java e Angular.',
-    image: '/musique.PNG',
-    technologies: ['Angular', 'Java', 'Spring Boot', 'PostgreSQL'],
-    githubUrl: 'https://github.com/MatheusBach-Dev/projeto-musica',
-    demoUrl: '',
-    status: 'in-progress'
-  },
+  // {
+  //   id: 5,
+  //   title: "Musique",
+  //   descriptionKey: "Musique",
+  //   image: "/musique.PNG",
+  //   technologies: ["Angular", "Java", "Spring Boot", "PostgreSQL"],
+  //   githubUrl: "https://github.com/MatheusBach-Dev/projeto-musica",
+  //   demoUrl: "",
+  //   status: "in-progress",
+  // },
 ];
 
 async function getCommitCount(owner: string, repo: string): Promise<number> {
-  const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?per_page=1`);
+  const res = await fetch(
+    `https://api.github.com/repos/${owner}/${repo}/commits?per_page=1`,
+  );
   if (!res.ok) return 0;
-  const link = res.headers.get('Link');
+  const link = res.headers.get("Link");
   if (!link) return 1;
   const match = link.match(/&page=(\d+)>; rel="last"/);
   return match ? parseInt(match[1]) : 1;
 }
 
 function parseRepo(githubUrl: string): { owner: string; repo: string } | null {
-  const match = githubUrl.match(/github\.com\/([^\/]+)\/([^\/]+)/);
+  const match = githubUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
   return match ? { owner: match[1], repo: match[2] } : null;
 }
 
 const Projects: React.FC = () => {
-  const [commitCounts, setCommitCounts] = useState<Record<number, number | null>>({});
+  const { t } = useLanguage();
+  const [commitCounts, setCommitCounts] = useState<
+    Record<number, number | null>
+  >({});
 
   useEffect(() => {
-    projects.forEach(project => {
+    projects.forEach((project) => {
       const parsed = parseRepo(project.githubUrl);
       if (!parsed) return;
-      getCommitCount(parsed.owner, parsed.repo).then(count => {
-        setCommitCounts(prev => ({ ...prev, [project.id]: count }));
+      getCommitCount(parsed.owner, parsed.repo).then((count) => {
+        setCommitCounts((prev) => ({ ...prev, [project.id]: count }));
       });
     });
   }, []);
@@ -120,11 +146,13 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-
         <div className="text-center mb-16">
-          <span className="text-primary font-mono text-sm tracking-wider uppercase">Meus Projetos</span>
+          <span className="text-primary font-mono text-sm tracking-wider uppercase">
+            {t.projects.sectionLabel}
+          </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-4">
-            <span className="gradient-text">Trabalhos</span> Recentes
+            <span className="gradient-text">{t.projects.title}</span>{" "}
+            {t.projects.titleHighlight}
           </h2>
           <div className="w-24 h-1 bg-gradient-primary mx-auto rounded-full" />
         </div>
@@ -134,36 +162,39 @@ const Projects: React.FC = () => {
             <div
               key={project.id}
               className={`skill-card rounded-2xl overflow-hidden group border-2 border-transparent transition-all duration-300 ${
-                project.status === 'in-progress' 
-                  ? 'hover:border-yellow-400' 
-                  : 'hover:border-primary'
+                project.status === "in-progress"
+                  ? "hover:border-yellow-400"
+                  : "hover:border-primary"
               }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 relative overflow-hidden">
                 {project.image ? (
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover rounded-t-1xl" />
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Folder className="w-16 h-16 text-primary/50" />
                   </div>
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
- 
+
                 {project.freelancer && (
                   <span className="absolute top-3 left-3 px-2 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-widest rounded-md border border-border/60 bg-background/60 backdrop-blur-sm text-muted-foreground">
-                    Freelancer
+                    {t.projects.freelancer}
                   </span>
                 )}
 
-                {project.status === 'in-progress' && (
+                {project.status === "in-progress" && (
                   <span className="absolute top-4 right-4 px-3 py-1 text-xs font-semibold rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 uppercase tracking-wide">
-                    Em Andamento
+                    {t.projects.inProgress}
                   </span>
                 )}
               </div>
 
-              {/* Project Content */}
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
@@ -179,7 +210,7 @@ const Projects: React.FC = () => {
                     >
                       <Github size={18} />
                     </a>
-                    {project.demoUrl && project.status === 'completed' && (
+                    {project.demoUrl && project.status === "completed" && (
                       <a
                         href={project.demoUrl}
                         target="_blank"
@@ -194,7 +225,7 @@ const Projects: React.FC = () => {
                 </div>
 
                 <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                  {project.description}
+                  {t.projects.descriptions[project.descriptionKey]}
                 </p>
 
                 <div className="flex flex-wrap gap-2">
@@ -212,8 +243,8 @@ const Projects: React.FC = () => {
                   <GitCommitHorizontal size={14} />
                   <span className="text-xs font-mono">
                     {commitCounts[project.id] == null
-                      ? '...'
-                      : `${commitCounts[project.id]} commits`}
+                      ? "..."
+                      : `${commitCounts[project.id]} ${t.projects.commits}`}
                   </span>
                 </div>
               </div>
@@ -221,7 +252,6 @@ const Projects: React.FC = () => {
           ))}
         </div>
 
-        {/* GitHub CTA */}
         <div className="text-center mt-12">
           <a
             href="https://github.com/MatheusBach-Dev"
@@ -230,7 +260,7 @@ const Projects: React.FC = () => {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary border border-border font-semibold transition-all duration-300 hover:scale-105 hover:border-primary hover:text-primary"
           >
             <Github size={20} />
-            Ver mais no GitHub
+            {t.projects.viewGithub}
           </a>
         </div>
       </div>

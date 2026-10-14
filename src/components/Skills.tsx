@@ -1,6 +1,7 @@
 import { Monitor, Server, Database, Wrench, Icon } from "lucide-react";
 import SplitText from "./SplitText";
 import { SiAngular, SiMysql, SiFirebase, SiPostgresql } from "react-icons/si";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const SkillIcons = {
   React: () => (
@@ -94,10 +95,11 @@ const SkillIcons = {
   ),
 };
 
-const skillCategories = [
+const skillCategoriesData = [
   {
-    title: "Front-end",
+    key: "frontend" as const,
     icon: <Monitor size={24} />,
+    title: "Front-end",
     skills: [
       { name: "React", Icon: SkillIcons.React },
       { name: "Angular", Icon: SkillIcons.Angular },
@@ -108,8 +110,9 @@ const skillCategories = [
     ],
   },
   {
-    title: "Back-end",
+    key: "backend" as const,
     icon: <Server size={24} />,
+    title: "Back-end",
     skills: [
       { name: "Node.js", Icon: SkillIcons.NodeJS },
       { name: "Java", Icon: SkillIcons.Java },
@@ -123,8 +126,9 @@ const skillCategories = [
     ],
   },
   {
-    title: "Banco de Dados",
+    key: "database" as const,
     icon: <Database size={24} />,
+    title: "Banco de Dados",
     skills: [
       { name: "Firebase", Icon: SkillIcons.Firebase },
       { name: "MySQL", Icon: SkillIcons.MySQL },
@@ -133,8 +137,9 @@ const skillCategories = [
     ],
   },
   {
-    title: "Ferramentas",
+    key: "tools" as const,
     icon: <Wrench size={24} />,
+    title: "Ferramentas",
     skills: [
       { name: "Git", Icon: SkillIcons.Git },
       { name: "GitHub", Icon: SkillIcons.GitHub },
@@ -146,6 +151,12 @@ const skillCategories = [
 ];
 
 export default function Skills() {
+  const { t } = useLanguage();
+  const skillCategories = skillCategoriesData.map((c) => ({
+    ...c,
+    title: t.skills.categories[c.key],
+  }));
+
   return (
     <section
       id="skills"
@@ -154,10 +165,10 @@ export default function Skills() {
       <div className="skills-container">
         <div className="text-center mb-16">
           <span className="text-primary font-mono text-sm tracking-wider uppercase">
-            Habilidades
+            {t.skills.sectionLabel}
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-4">
-            Minhas <span className="gradient-text">Habilidades</span>
+            {t.skills.title} <span className="gradient-text">{t.skills.titleHighlight}</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-primary mx-auto rounded-full" />
         </div>
