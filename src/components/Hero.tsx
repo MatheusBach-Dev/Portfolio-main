@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, Download, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import LightRays from './LightRays';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -58,14 +58,7 @@ const Hero: React.FC = () => {
                 {t.hero.cta}
                 <ArrowDown size={16} className="group-hover:translate-y-0.5 transition-transform" />
               </a>
-              <a
-                href="/Matheus-Bach-Curriculo.pdf"
-                download
-                className="group px-6 py-3 rounded-lg border border-border font-semibold text-sm transition-all duration-200 hover:border-foreground/50 flex items-center gap-2"
-              >
-                {t.hero.resume}
-                <Download size={16} className="group-hover:translate-y-0.5 transition-transform" />
-              </a>
+
             </div>
 
             <div
